@@ -10,11 +10,11 @@ import com.chaveze.affirmationsapp.R
 import com.chaveze.affirmationsapp.model.Affirmation
 
 class ItemAdapter(
-    val ctx: Context,
-    private val dataset: List<Affirmation>)
-        : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+    private val ctx: Context,
+    private val dataset: List<Affirmation>
+) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
-    class ItemViewHolder(private val v: View): RecyclerView.ViewHolder(v) {
+    class ItemViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val tv: TextView = v.findViewById(R.id.item_title)
     }
 
@@ -31,7 +31,5 @@ class ItemAdapter(
         holder.tv.text = ctx.resources.getString(item.stringResId)
     }
 
-    override fun getItemCount(): Int {
-        return dataset.size
-    }
+    override fun getItemCount() = dataset.size
 }
