@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         val myDataSet = DataSource().loadAffirmations()
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
 
-        recyclerView.layoutManager = GridLayoutManager(this, 3)
+//        recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = ItemAdapter(this, myDataSet, recyclerView.layoutManager is GridLayoutManager)
         recyclerView.setHasFixedSize(true)
     }
