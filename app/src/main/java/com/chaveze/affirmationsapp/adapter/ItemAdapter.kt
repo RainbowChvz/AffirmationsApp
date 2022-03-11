@@ -12,7 +12,8 @@ import com.chaveze.affirmationsapp.model.Affirmation
 
 class ItemAdapter(
     private val ctx: Context,
-    private val dataset: List<Affirmation>
+    private val dataset: List<Affirmation>,
+    private val isGrid: Boolean = false
 ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(v: View) : RecyclerView.ViewHolder(v) {
@@ -21,8 +22,13 @@ class ItemAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+
+        var layoutRes = R.layout.list_item
+        if (isGrid)
+            layoutRes = R.layout.list_item_grid
+
         val adapterLayout = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item, parent, false)
+            .inflate(layoutRes, parent, false)
 
         return ItemViewHolder(adapterLayout)
     }
